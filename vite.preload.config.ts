@@ -1,8 +1,12 @@
 import { defineConfig } from "vite";
-// import { fileURLToPath, URL } from "node:url";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { fileURLToPath, URL } from "node:url";
 
 // https://vitejs.dev/config
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  plugins: [],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
 });

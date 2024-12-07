@@ -1,8 +1,10 @@
 import path from "path";
 import { app, BrowserWindow, ipcMain } from "electron";
 import started from "electron-squirrel-startup";
-import { env } from "../core/env";
-import openBrowserWindow from "../handlers/openBrowserWindow";
+import { env } from "@/core/env";
+import openBrowserWindow from "@/handlers/openBrowserWindow";
+import saveProfile from "@/handlers/profiles/saveProfile";
+import getProfiles from "@/handlers/profiles/getProfiles";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -59,3 +61,5 @@ app.on("activate", () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 ipcMain.on("open-browser-window", openBrowserWindow);
+ipcMain.handle("save-profile", saveProfile);
+ipcMain.handle("get-profiles", getProfiles);

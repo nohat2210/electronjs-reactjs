@@ -2,13 +2,13 @@ import { ComponentType } from "react";
 import { createHashRouter, Navigate } from "react-router-dom";
 import loadable from "../shared/utils/loadable";
 import NotFound from "../views/NotFound";
-// import Login from "../views/auth/Login";
 
 const Dashboard = withProtectedRoute(
   loadable(() => import("../views/Dashboard"))
 );
 const Login = loadable(() => import("../views/auth/Login"));
 const Register = loadable(() => import("../views/auth/Register"));
+const Profile = loadable(() => import("../views/profile/Profile"));
 
 export const routes = createHashRouter([
   {
@@ -17,6 +17,10 @@ export const routes = createHashRouter([
       {
         index: true,
         element: <Dashboard />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
       {
         path: "login",

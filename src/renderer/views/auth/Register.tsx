@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import RegisterForm from "@/renderer/modules/auth/components/register/RegisterForm";
 
 function Register() {
